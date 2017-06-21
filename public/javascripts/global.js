@@ -15,6 +15,9 @@ $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 // Add User button click
 $('#btnAddUser').on('click', addUser);
 
+// Delete User link click
+$('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
+
 // Functions =============================================================
 
 // Fill table with data
@@ -107,7 +110,6 @@ function addUser(event) {
     populateTable();
 
     } else {
-
         // If something goes wrong, alert the error message that our service returned
         alert('Error: ' + response.msg);
     }
@@ -117,4 +119,38 @@ function addUser(event) {
         alert('Please fill in all fields');
         return false;
     }
+};
+
+// Delete User
+function deleteUser(event) {
+
+    event.preventDefault();
+
+    // Pop up a confirmation dialog
+    var confirmation = confirm('Are you sure you want to delete this user?');
+
+    // Check and make sure the user confirmed
+    if (confirmation === true) {
+
+    // If they did, do our delete
+    $.ajax({
+        type: 'DELETE',
+        url: '/users/deleteuser/' + $(this).attr('rel')
+        }).done(function( response ) {
+
+    // Check for a successful (blank) response
+    if (response.msg === '') {
+    } else {
+        alert('Error: ' + response.msg);
+    }
+
+    // Update the table
+    populateTable();
+    });
+
+    } else {
+    // If they said no to the confirm, do nothing
+        return false;
+    }
+
 };
