@@ -94,11 +94,11 @@ function addUser(event) {
 
     // Use AJAX to post the object to our adduser service
     $.ajax({
-    type: 'POST',
-    data: newUser,
-    url: '/users/adduser',
-    dataType: 'JSON'
-    }).done(function( response ) {
+      type: 'POST',
+      data: newUser,
+      url: '/users/adduser',
+      dataType: 'JSON'
+      }).done(function( response ) {
 
     // Check for successful (blank) response
     if (response.msg === '') {
