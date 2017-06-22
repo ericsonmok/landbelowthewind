@@ -7,6 +7,10 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/landbelowthewind');
+import dotenv from 'dotenv';
+dotenv.load(path: '.env');
+
+mongoose.connect(process.env.MONGODB_URI);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
