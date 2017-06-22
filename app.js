@@ -16,6 +16,8 @@ var db = monk(process.env.MONGODB_URI);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/login');
+var signup = require('./routes/login');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.use(function(req,res,next){
 
 app.use('/', index);
 app.use('/admin', users);
+app.use('/login', login);
+app.use('/signup', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

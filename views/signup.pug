@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  form(action='/signup', autocomplete='off', method='POST')
+    .form-group
+      label(for='exampleInputEmail1') Email address
+      input#exampleInputEmail1.form-control(type='email',name='username', placeholder='Email')
+    .form-group
+      label(for='exampleInputPassword1') Password
+      input#exampleInputPassword1.form-control(type='password', name='password', placeholder='Password')
+    button.btn.btn-default(type='submit') Submit
