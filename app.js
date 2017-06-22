@@ -1,3 +1,4 @@
+require('dotenv').config({ silent: true })
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,11 +7,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/landbelowthewind');
-import dotenv from 'dotenv';
-dotenv.load(path: '.env');
+// var db = monk('localhost:27017/landbelowthewind');
+var db = monk(process.env.MONGODB_URI);
+// import dotenv from 'dotenv';
+// dotenv.load(path: '.env');
 
-mongoose.connect(process.env.MONGODB_URI);
+//mongoose.connect(process.env.MONGODB_URI);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
