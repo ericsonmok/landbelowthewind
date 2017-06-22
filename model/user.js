@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt'
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
 },{ timestamps: true});
 
 
-/**
+/*
  * Password hash middleware.
  */
 userSchema.pre('save', function save(next) {

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-import User from '../model/user';
+var User = require('../model/user')
 
 /* GET login page. */
 router.get('/', function(req, res, next) {

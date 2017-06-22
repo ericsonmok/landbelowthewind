@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 // var db = monk('localhost:27017/landbelowthewind');
 var db = monk(process.env.MONGODB_URI);
 // import dotenv from 'dotenv';
@@ -17,7 +19,7 @@ var db = monk(process.env.MONGODB_URI);
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
-var signup = require('./routes/login');
+var signup = require('./routes/signup');
 
 var app = express();
 
@@ -42,7 +44,7 @@ app.use(function(req,res,next){
 app.use('/', index);
 app.use('/admin', users);
 app.use('/login', login);
-app.use('/signup', login);
+app.use('/signup', signup);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
