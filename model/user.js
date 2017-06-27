@@ -34,7 +34,14 @@ userSchema.methods.comparePassword = function comparePassword(candidatePassword,
   });
 };
 
-
+/**
+ * Helper method for validating user's password.
+ */
+userSchema.methods.validPassword = function (candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    cb(err, isMatch);
+  });
+};
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

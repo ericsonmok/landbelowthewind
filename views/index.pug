@@ -1,21 +1,7 @@
-doctype html
-//
-  Eventually by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-html
-  head
-    title Land below the Wind
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    //if lte IE 8
-      script(src='assets/js/ie/html5shiv.js')
-    link(rel='stylesheet', href='assets/css/main.css')
-    //if lte IE 8
-      link(rel='stylesheet', href='assets/css/ie8.css')
-    //if lte IE 9
-      link(rel='stylesheet', href='assets/css/ie9.css')
-  body
+extends layout
+
+block main
+    
     // Header
     header#header
       h1 Land Below the Wind
@@ -24,27 +10,23 @@ html
         br
         | Saving the ocean through education
         | & marine conservation
-    // Signup Form
-    form#signup-form(method='post', action='#')
-      input#email(type='email', name='email', placeholder='Email Address')
-      input(type='submit', value='Sign Up')
+        // Signup
+        .col-xs-12.col-sm-12.col-md-12
+        a(href='/signup')
+          button.btn.btn-success(type='button') Sign Up
     // Footer
     footer#footer
       ul.icons
-        li
-          a.icon.fa-twitter(href='#')
+        p
+          a(href='#')
             span.label Twitter
-        li
-          a.icon.fa-instagram(href='#')
+        p
+          a(href='#')
             span.label Instagram
-        li
-          a.icon.fa-github(href='#')
-            span.label GitHub
-        li
-          a.icon.fa-envelope-o(href='#')
+        p
+          a(href='#')
             span.label Email
       ul.copyright
-        li © ericsonmok.
-        li
+        p © ericsonmok.
           | Admin:
-          a(href='http://localhost:3000/login') LOGIN
+          a(href='http://localhost:5000/login') LOGIN
